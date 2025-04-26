@@ -8,11 +8,9 @@ const Footer = () => {
         
         {/* Logo and Description */}
         <div style={styles.column}>
-          <h2 style={styles.logo}>
-           مطعم الجود
-            </h2>
+          <h2 style={styles.logo}>مطعم الجود</h2>
           <p style={styles.description}>
-            نقدم لك أفضل الخدمات والعروض. تابعنا لتبقى دائماً على اطلاع بكل جديد.
+            نسعى لتقديم أفضل تجربة طعام لك. تابعنا ليصلك كل جديد وعروضنا المميزة.
           </p>
         </div>
 
@@ -22,7 +20,7 @@ const Footer = () => {
           <ul style={styles.list}>
             <li><a href="#" style={styles.link}>الرئيسية</a></li>
             <li><a href="#" style={styles.link}>من نحن</a></li>
-            <li><a href="#" style={styles.link}>الخدمات</a></li>
+            <li><a href="#" style={styles.link}>القائمة</a></li>
             <li><a href="#" style={styles.link}>اتصل بنا</a></li>
           </ul>
         </div>
@@ -39,10 +37,10 @@ const Footer = () => {
 
         {/* Social Media */}
         <div style={styles.column}>
-          <h3 style={styles.columnTitle}>اعرف اخر أخبارنا </h3>
+          <h3 style={styles.columnTitle}>تابعنا على</h3>
           <div style={styles.socialIcons}>
-            <a href="#" style={{ ...styles.socialIcon, backgroundColor: '#4267B2' }}><FaFacebookF /></a>
-            <a href="#" style={{ ...styles.socialIcon, backgroundColor: '#C13584' }}><FaInstagram /></a>
+            <a href="#" style={{ ...styles.socialIcon, backgroundColor: '#3b5998' }}><FaFacebookF /></a>
+            <a href="#" style={{ ...styles.socialIcon, backgroundColor: '#E1306C' }}><FaInstagram /></a>
             <a href="#" style={{ ...styles.socialIcon, backgroundColor: '#1DA1F2' }}><FaTwitter /></a>
             <a href="#" style={{ ...styles.socialIcon, backgroundColor: '#FF0000' }}><FaYoutube /></a>
           </div>
@@ -52,46 +50,49 @@ const Footer = () => {
 
       {/* Copy Rights */}
       <div style={styles.bottomBar}>
-        <p>© {new Date().getFullYear()} جميع الحقوق محفوظة | مطعم الجود</p>
+        <p>© {new Date().getFullYear()} مطعم الجود | جميع الحقوق محفوظة</p>
       </div>
-
     </footer>
   );
 };
 
 const styles = {
   footer: {
-    backgroundColor: '#555', // أسود خفيف
-    color: '#eee',
-    padding: '60px 20px 20px',
+    backgroundColor: '#222',
+    color: '#ddd',
+    padding: '60px 20px 30px',
     direction: 'rtl',
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: 'Tajawal, Arial, sans-serif',
   },
   container: {
     maxWidth: '1200px',
     margin: 'auto',
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '30px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '40px',
   },
   column: {
     display: 'flex',
     flexDirection: 'column',
+    gap: '15px',
   },
   logo: {
-    fontSize: '26px',
+    fontSize: '28px',
     color: '#fff',
-    marginBottom: '15px',
+    marginBottom: '10px',
   },
   description: {
-    fontSize: '15px',
-    color: '#ccc',
-    lineHeight: '1.7',
+    fontSize: '16px',
+    color: '#bbb',
+    lineHeight: '1.8',
   },
   columnTitle: {
-    fontSize: '18px',
-    marginBottom: '15px',
+    fontSize: '20px',
     color: '#fff',
+    marginBottom: '10px',
+    borderBottom: '2px solid #ff8c8c',
+    paddingBottom: '5px',
+    width: 'fit-content',
   },
   list: {
     listStyle: 'none',
@@ -99,36 +100,37 @@ const styles = {
     margin: 0,
     display: 'flex',
     flexDirection: 'column',
-    gap: '10px',
+    gap: '8px',
   },
   link: {
-    color: '#ccc',
+    color: '#bbb',
     textDecoration: 'none',
-    fontSize: '15px',
-    transition: 'color 0.3s ease',
+    fontSize: '16px',
+    transition: 'color 0.3s',
   },
   socialIcons: {
     display: 'flex',
     gap: '10px',
+    marginTop: '10px',
   },
   socialIcon: {
-    width: '40px',
-    height: '40px',
+    width: '45px',
+    height: '45px',
     borderRadius: '50%',
-    color: '#fff',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: '18px',
-    transition: 'background-color 0.3s ease, transform 0.3s ease',
+    color: '#fff',
+    fontSize: '20px',
+    transition: 'transform 0.3s',
   },
   bottomBar: {
-    borderTop: '1px solid #333',
-    marginTop: '40px',
+    marginTop: '50px',
+    borderTop: '1px solid #444',
     paddingTop: '20px',
     textAlign: 'center',
     fontSize: '14px',
-    color: '#777',
+    color: '#888',
   }
 };
 

@@ -15,13 +15,21 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1;
   }
   
   .card {
+    overflow: hidden;
+    border-radius: 12px;
     transition: transform 0.3s ease;
+    border: none;
   }
   
   .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }

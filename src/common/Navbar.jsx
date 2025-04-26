@@ -45,7 +45,6 @@ const styles = {
   navbar: {
     backgroundColor: '#fff', // خلفية بيضاء
     padding: '10px 20px',
-    fontFamily: 'Tajawal, sans-serif', 
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)', // ظل خفيف
     position: 'sticky',
     top: 0,

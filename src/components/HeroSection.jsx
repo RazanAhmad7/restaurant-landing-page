@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/HeroSectionStyle.css";
+import MainButton from '../common/MainButton';
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
         <div className="text-content">
           <h1>مرحبا بك في مطعم الجود</h1>
           <p>مكانك المثالي للاستمتاع بأطباق مبتكرة وشهية تم إعدادها بأعلى معايير الجودة</p>
-          <button className="booking-btn">احجز الآن</button>
+          <MainButton text={"احجز الآن"}/>
         </div>
         <div className="image-container">
           <img className='img-fluid' src="src/assets/Screenshot_2025-04-03_010405-removebg-preview.png" alt="طبق باستا" />

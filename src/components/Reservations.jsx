@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import OneSection from '../common/OneSection'
+import Section from '../common/Section'
 
 const Reservations = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const Reservations = () => {
   };
 
   return (
-    <OneSection 
+    <Section 
       title={'احجز طاولتك الآن'}
       subTitle={'اجعل تجربتك معنا لا تُنسى واحجز طاولتك مسبقًا.'}
     >
@@ -128,7 +128,7 @@ const Reservations = () => {
                 </div>
                 
                 <div className="text-center">
-                  <button type="submit" className="reservation-btn">تأكيد الحجز</button>
+                  <button type="submit" className="order-btn">تأكيد الحجز</button>
                 </div>
 
                 <div className="reservation-note mt-3">
@@ -200,7 +200,7 @@ const Reservations = () => {
           text-align: center;
         }
       `}</style>
-    </OneSection>
+    </Section>
   )
 }
 

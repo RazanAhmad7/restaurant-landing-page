@@ -1,69 +1,35 @@
-import OneSection from '../common/OneSection';
+/* eslint-disable no-unused-vars */
+import Section from '../common/Section';
 import "../styles/SpecialsStyle.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { useState } from 'react';
+import MainButton from '../common/MainButton';
 
 function Specials() {
 
-  const[newCard,setNewCard] = useState({
+ 
+  const [cards, setCards] = useState([
+    { id: 1, title: 'باستا السي فود', img: "src/assets/seafood.jpg", discount: '20%', description: 'تمتع بمذاق بحري لا يقاوم مع خصم ' },
+    { id: 2, title: 'بيتزا مارغريتا', img: "src/assets/pizza-5275191_1280.jpg", discount: '15%', description: 'استمتع ببيتزا مارغريتا الأصلية بخصم ' },
+    { id: 3, title: 'برغر الدجاج', img: 'src/assets/0b87c96ab61a232f8da9c646fb6753068875c2ef.jpg', discount: '10%', description: 'برغر دجاج طازج وشهي بخصم' },
+    { id: 4, title: 'سلطة يونانية', img: 'src/assets/ab84770aa39902652af4892a0b7f2760_w750_h500.jpg', discount: '25%', description: 'سلطة يونانية طازجة ومنعشة بخصم ' },
+    { id: 5, title: 'كريب نوتيلا', img: 'src/assets/كريب-حلو-بحشوات-النوتيلا.png', discount: '18%', description: 'دلل نفسك بكريب النوتيلا مع خصم ' },
+    { id: 6, title: 'مقبلات مشكلة', img: 'src/assets/e2ebb73688f891e5ef695135a774dfbf-size1200.jpg', discount: '12%', description: 'تشكيلة مميزة من المقبلات بخصم ' },
+  ]);
+  
+{/*
+   const[newCard,setNewCard] = useState({
     title: "",
     discount: "",
     img: ""
   });
-  const [cards,setCards] = useState([
-    { id: 1, title: 'باستا السي فود', img: "src/assets/seafood.jpg", discount: '20%' },
-    { id: 2, title: 'بيتزا مارغريتا', img: "src/assets/pizza-5275191_1280.jpg", discount: '15%' },
-    { id: 3, title: 'برغر الدجاج', img: 'src/assets/0b87c96ab61a232f8da9c646fb6753068875c2ef.jpg', discount: '10%' },
-    { id: 4, title: 'سلطة يونانية', img: 'src/assets/ab84770aa39902652af4892a0b7f2760_w750_h500.jpg', discount: '25%' },
-    { id: 5, title: 'كريب نوتيلا', img: 'src/assets/كريب-حلو-بحشوات-النوتيلا.png', discount: '18%' },
-    { id: 6, title: 'مقبلات مشكلة', img: 'src/assets/e2ebb73688f891e5ef695135a774dfbf-size1200.jpg', discount: '12%' },
-  ]);
-
+  
   const [showEditModal, setShowEditModal] = useState(false);
-const [editCardData, setEditCardData] = useState({
+  const [editCardData, setEditCardData] = useState({
     title: "",
     discount:"",
     img: "",
-  });
-
- 
-  function handelDeleteCard(id){
-    const newCards = cards.filter((card=>card.id != id));
-    setCards(newCards);
-  }
-  function handelEditCard(id) {
-    const cardToEdit = cards.find((card)=>card.id===id);
-    if(cardToEdit) {
-      setEditCardData(cardToEdit);
-      setShowEditModal(true);
-    }
-  }
-  function handleSaveEdit() {
-    const updatedCards = cards.map(card=> {
-      if (card.id === editCardData.id) {
-        return editCardData;
-      }
-      return card;
-    });
-    setCards(updatedCards);
-    setShowEditModal(false);
-  }
-  const cardsList = cards.map((card) => {
-   return <SwiperSlide key={card.id}>
- <div className="card" style={{ position: "relative" }}>
-                <div className='discount-badge'>{card.discount}</div>
-                <img className='card-img-top' style={{minHeight:"250px"}} src={card.img} alt={card.title} />
-                <div className="card-body bg-light" style={{ borderRadius: "25px" }}>
-                  <h3 className='card-title'>{card.title}</h3>
-                  <p className='card-text'>تمتع بمذاق بحري لا يقاوم بخصم {card.discount}!</p>
-                  <button className="order-btn">اطلب الآن</button>
-                  <button className="order-btn" onClick={()=> {handelDeleteCard(card.id)}}>حذف العنصر</button>
-                  <button className="order-btn" onClick={()=> {handelEditCard(card.id)}}>تعديل العنصر</button>
-                </div>
-              </div>
-   </SwiperSlide>
-   ;
   });
 
   function handelAddingCard() {
@@ -79,12 +45,54 @@ const [editCardData, setEditCardData] = useState({
    ]);
 
     }
+
+  function handelDeleteCard(id){
+    const newCards = cards.filter((card=>card.id != id));
+    setCards(newCards);
+  }
+
+  function handelEditCard(id) {
+    const cardToEdit = cards.find((card)=>card.id===id);
+    if(cardToEdit) {
+      setEditCardData(cardToEdit);
+      setShowEditModal(true);
+    }
+  }
+
+  function handleSaveEdit() {
+    const updatedCards = cards.map(card=> {
+      if (card.id === editCardData.id) {
+        return editCardData;
+      }
+      return card;
+    });
+    setCards(updatedCards);
+    setShowEditModal(false);
+  }*/}
+  const cardsList = cards.map((card) => {
+   return <SwiperSlide key={card.id}>
+            <div className="card" style={{ position: "relative" }}>
+                <div className='discount-badge'>{card.discount}</div>
+                <img className='card-img-top' height={230}  src={card.img} alt={card.title} />
+                <div className="card-body bg-light" style={{ borderRadius: "25px" }}>
+                  <h3 className='card-title'>{card.title}</h3>
+                  <p className='card-text'>{card.description} {card.discount}!</p>
+                  <MainButton text={"اطلب الآن"}/>
+              {/* <button className="order-btn" onClick={()=> {handelDeleteCard(card.id)}}>حذف العنصر</button>
+                  <button className="order-btn" onClick={()=> {handelEditCard(card.id)}}>تعديل العنصر</button>*/}
+                </div>
+              </div>
+   </SwiperSlide>
+   ;
+  });
+
+ 
   return (
-    <OneSection
+    <Section
       title={'عروض حصرية لهذا الشهر'}
       subTitle={'استفد من عروضنا الخاصة على وجباتنا المميزة! لا تفوت فرصة تذوق أطباقنا الشهية بأسعار مخفضة.'}
     >
-
+{/*
      <div className='d-flex flex-column'>
      <input
         value={newCard.title}
@@ -118,22 +126,22 @@ const [editCardData, setEditCardData] = useState({
       <button onClick={handelAddingCard}>
         Add Card Tilte
       </button>
-     </div>
+     </div>*/}
       <div className="container-fluid">
         <Swiper
           spaceBetween={20}
-          slidesPerView={4.5}
+          slidesPerView={3.1}
           grabCursor={true} // يخلي شكل الماوس لما تمر فوقه زي اليد (للسحب)
           breakpoints={{
-            300: {slidesPerView: 1.1},
-            640: { slidesPerView: 1.5, },
+            300: {slidesPerView: 0.8},
+            640: { slidesPerView: 1, },
             1024: { slidesPerView: 2.8}
           }}
         >
          {cardsList}
         </Swiper>
       </div>
-      {showEditModal && (
+  { /* {showEditModal && (
   <div className="modal" style={{
     position: 'fixed', top: '0', left: '0', width: '100%', height: '100%',
     backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center'
@@ -169,9 +177,9 @@ const [editCardData, setEditCardData] = useState({
       <button onClick={() => setShowEditModal(false)}>إلغاء</button>
     </div>
   </div>
-)}
+)}*/}
 
-    </OneSection>
+    </Section>
     
   );
 }

@@ -1,0 +1,31 @@
+.mainTitle {
+    color: #D60F14;
+    border-bottom: 3px outset red;
+   padding-bottom: 1rem;
+   border-radius: 10%;
+}
+.subTitile {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #555;
+   max-width: 70%;
+   text-align: center;
+}
+
+
+  .order-btn {
+    background-color: #D60F14;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .order-btn:hover {
+    background-color: #bb0c12;
+  }
