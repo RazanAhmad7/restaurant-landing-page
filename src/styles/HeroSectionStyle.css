@@ -1,0 +1,121 @@
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    direction: rtl;
+  }
+  
+  .hero-content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75%;
+    width: 90%;
+    margin: 0 auto;
+    z-index: 10;
+  }
+  
+  .text-content {
+    max-width: 50%;
+  }
+  
+  .text-content h1 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #D60F14;
+  }
+  
+  .text-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  .booking-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    background-color: #D60F14;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .booking-btn:hover {
+    background-color: #bb0c12;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-container {
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
+
+  }
+  
+  .wave-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .wave-background svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); /* This flips the SVG horizontally */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .hero-content {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+    
+    .text-content, .image-container {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+    
+    .image-container {
+      margin-top: 2rem;
+    }
+    
+    .text-content h1 {
+      font-size: 2rem;
+    }
+    
+    .text-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-container {
+      height: auto;
+      min-height: 100vh;
+    }
+    
+    .text-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .wave-background {
+      height: 60%;
+    }
+  }

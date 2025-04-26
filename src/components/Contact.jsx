@@ -1,8 +1,328 @@
-import React from 'react'
+import React, { useState } from 'react'
+import OneSection from '../common/OneSection'
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Here you would typically send the data to your server
+    console.log('Form submitted:', formData);
+    setFormSubmitted(true);
+    
+    // Reset form after submission
+    setTimeout(() => {
+      setFormSubmitted(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    }, 3000);
+  };
+
   return (
-    <div>Contact</div>
+    <OneSection
+      title={'تواصل معنا'}
+      subTitle={'نحن هنا للإجابة على أسئلتك أو مساعدتك في أي شيء تحتاجه.'}
+    >
+      <div className="contact-container">
+        <div className="row">
+         
+          
+          <div className="col-lg-7 col-md-12 contact-form-container">
+            {formSubmitted ? (
+              <div className="form-success-message">
+                <div className="success-icon">✓</div>
+                <h3>تم إرسال رسالتك بنجاح!</h3>
+                <p>شكراً لتواصلك معنا، سنقوم بالرد عليك في أقرب وقت ممكن.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="contact-form rtl">
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label">الاسم الكامل</label>
+                    <input 
+                      type="text" 
+                      className="form-control" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label">البريد الإلكتروني</label>
+                    <input 
+                      type="email" 
+                      className="form-control" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label">رقم الهاتف</label>
+                    <input 
+                      type="tel" 
+                      className="form-control" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label">الموضوع</label>
+                    <input 
+                      type="text" 
+                      className="form-control" 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="mb-4">
+                  <label className="form-label">الرسالة</label>
+                  <textarea 
+                    className="form-control" 
+                    rows="5" 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
+                
+                <div className="text-center">
+                  <button type="submit" className="contact-btn">إرسال الرسالة</button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .contact-container {
+          margin-top: 20px;
+        }
+        
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: -15px;
+          margin-left: -15px;
+        }
+        
+        .col-lg-5, .col-lg-7 {
+          position: relative;
+          width: 100%;
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+        
+        @media (min-width: 992px) {
+          .col-lg-5 {
+            flex: 0 0 41.666667%;
+            max-width: 41.666667%;
+          }
+          .col-lg-7 {
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+          }
+        }
+        
+        .col-md-6, .col-md-12 {
+          position: relative;
+          width: 100%;
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+        
+        @media (min-width: 768px) {
+          .col-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
+          .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+        }
+        
+        .mb-3 {
+          margin-bottom: 1rem;
+        }
+        
+        .mb-4 {
+          margin-bottom: 1.5rem;
+        }
+        
+        .rtl {
+          direction: rtl;
+          text-align: right;
+        }
+        
+        .contact-info-container {
+          background-color: #fff;
+          border-radius: 15px;
+          padding: 30px;
+          height: 100%;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info-container h3 {
+          color: #333;
+          margin-bottom: 15px;
+          font-size: 1.5rem;
+          text-align: right;
+        }
+        
+        .contact-description {
+          color: #666;
+          margin-bottom: 25px;
+          text-align: right;
+        }
+        
+        .contact-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 20px;
+          text-align: right;
+        }
+        
+        .contact-icon {
+          margin-left: 15px;
+          width: 40px;
+          height: 40px;
+          background-color: rgba(214, 15, 20, 0.1);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.2rem;
+          color: #D60F14;
+        }
+        
+        .contact-text h4 {
+          margin: 0 0 5px 0;
+          font-size: 1.1rem;
+          color: #333;
+        }
+        
+        .contact-text p {
+          margin: 0;
+          color: #666;
+        }
+        
+        .contact-form-container {
+          background-color: #fff;
+          border-radius: 15px;
+          padding: 30px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-label {
+          font-weight: 500;
+          color: #333;
+          margin-bottom: 8px;
+          display: block;
+        }
+        
+        .form-control {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid #ddd;
+          background-color: #f9f9f9;
+          transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+          border-color: #D60F14;
+          box-shadow: 0 0 0 3px rgba(214, 15, 20, 0.1);
+          outline: none;
+        }
+        
+        .contact-btn {
+          background-color: #D60F14;
+          color: #fff;
+          border: none;
+          border-radius: 30px;
+          padding: 12px 35px;
+          font-size: 1rem;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+          background-color: #bb0c12;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(214, 15, 20, 0.2);
+        }
+        
+        .form-success-message {
+          text-align: center;
+          padding: 40px 20px;
+        }
+        
+        .success-icon {
+          width: 70px;
+          height: 70px;
+          background-color: #4CAF50;
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2rem;
+          margin: 0 auto 20px;
+        }
+        
+        .form-success-message h3 {
+          color: #333;
+          margin-bottom: 15px;
+        }
+        
+        .form-success-message p {
+          color: #666;
+        }
+        
+        @media (max-width: 991px) {
+          .contact-info {
+            margin-bottom: 30px;
+          }
+        }
+      `}</style>
+    </OneSection>
   )
 }
 
